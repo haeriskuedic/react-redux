@@ -1,14 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import { counterActions } from "../store/index"; // import the actions
+import { counterActions } from "../store/counter"; // import the actions
 import classes from "./Counter.module.css";
 
 const Counter = () => {
   const dispatch = useDispatch(); // a function that will dispatch a action against our redux store
 
   // redux will automatic create a subscription for this component
-  const counter = useSelector((state) => state.counter); // fuction retrieve the store data and extract
-  const showCounter = useSelector((state) => state.showCounter);
+  //const counter = useSelector((state) => state.counter); // fuction retrieve the store data and extract
+  const counter = useSelector((state) => state.counter.counter);
+  //const showCounter = useSelector((state) => state.showCounter);
+  const showCounter = useSelector((state) => state.counter.showCounter);
 
   const incrementHandler = () => {
     dispatch(counterActions.increment()); // dispatch with action
